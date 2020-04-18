@@ -297,6 +297,8 @@ class Canvas(QtWidgets.QWidget):
         if shape is None or point is None:
             return
         index = shape.nearestVertex(point, self.epsilon)
+        if not isinstance(index, int):
+            return
         shape.removePoint(index)
         # shape.highlightVertex(index, shape.MOVE_VERTEX)
         self.hShape = shape
